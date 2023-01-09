@@ -10,12 +10,14 @@
         <module name="_test__feign_client_B" />
         <module name="_test__eureka_client" />
         <module name="_test__feign_client_A" />
+        <module name="_test__config_client" />
         <module name="config_server" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="_test__config_client" options="-parameters" />
       <module name="_test__eureka_client" options="-parameters" />
       <module name="_test__feign_client_A" options="-parameters" />
       <module name="_test__feign_client_B" options="-parameters" />
