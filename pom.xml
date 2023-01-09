@@ -9,6 +9,7 @@
     <module>_test__eureka_client</module>
       <module>_test__feign_client_B</module>
       <module>_test__feign_client_A</module>
+    <module>config_server</module>
   </modules>
 
   <parent>
