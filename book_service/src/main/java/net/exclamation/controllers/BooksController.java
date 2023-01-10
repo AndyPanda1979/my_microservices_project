@@ -16,10 +16,13 @@ import java.util.logging.Logger;
 public class BooksController {
     Logger logger = Logger.getLogger(BooksController.class.getName());
 
-    @Autowired
-    private Environment env;
-    @Autowired
-    private BooksService booksService;
+    private final Environment env;
+    private final BooksService booksService;
+
+    public BooksController(Environment env, BooksService booksService) {
+        this.env = env;
+        this.booksService = booksService;
+    }
 
     @RequestMapping("/")
     public String home() {
