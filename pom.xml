@@ -11,6 +11,7 @@
       <module>_test__feign_client_A</module>
     <module>config_server</module>
       <module>_test__config_client</module>
+    <module>book_service</module>
   </modules>
 
   <parent>
