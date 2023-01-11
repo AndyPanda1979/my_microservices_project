@@ -7,6 +7,7 @@
     <file url="file://$PROJECT_DIR$/_test__feign_client_B/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/book_service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/book_service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/client_service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/config_server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eureka_server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eureka_server/src/main/resources" charset="UTF-8" />

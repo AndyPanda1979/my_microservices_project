@@ -12,6 +12,7 @@
     <module>config_server</module>
       <module>_test__config_client</module>
     <module>book_service</module>
+      <module>client_service</module>
   </modules>
 
   <parent>
