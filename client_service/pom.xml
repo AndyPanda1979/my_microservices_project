@@ -20,6 +20,7 @@
         <maven.compiler.source>8</maven.compiler.source>   <!-- изменил, чтобы работали ссылки на методы -->
         <maven.compiler.target>8</maven.compiler.target>
         <spring-cloud.version>2022.0.0</spring-cloud.version>
+        <resilience4jVersion>2.0.0</resilience4jVersion>
     </properties>
 
     <dependencies>
@@ -59,6 +60,39 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+        <!-- пробуем с hystrix -->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>-->
+<!--            <version>2.2.10.RELEASE</version>-->
+<!--        </dependency>-->
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-hystrix</artifactId>
+            <version>1.4.7.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-netflix-hystrix-dashboard</artifactId>
+            <version>2.2.10.RELEASE</version>
+        </dependency>
+
+
+        <!-- замена hystrix -->
+
+        <dependency>
+            <groupId>io.github.resilience4j</groupId>
+            <artifactId>resilience4j-all</artifactId>
+            <version>${resilience4jVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-commons</artifactId>
+            <version>4.0.0</version>
         </dependency>
 
         <dependency>

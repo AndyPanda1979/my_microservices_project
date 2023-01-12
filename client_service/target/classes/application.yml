@@ -1,6 +1,9 @@
 spring:
   main:
     allow-circular-references: true
+  profiles:
+    active: dev   # Указал активный профиль, чтобы указать URI для Feign Client в конфигурационном файле,
+                  # см. ПРОЕКТ/service/ms-config-properties/client-service/dev/client-service.yml
 
 ---
 spring:
@@ -8,8 +11,8 @@ spring:
     name: client-service
   config:
     import: optional:configserver:http://localhost:8888
-  profiles:
-    active: dev
+
+
 
 server:
   port: 8082

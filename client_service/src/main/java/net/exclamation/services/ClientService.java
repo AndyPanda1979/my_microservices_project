@@ -1,7 +1,9 @@
 package net.exclamation.services;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import net.exclamation.feign.BookServiceConnector;
 import net.exclamation.models.Book;
+import org.springframework.cloud.client.circuitbreaker.CircuitBreaker;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
@@ -38,10 +40,11 @@ public class ClientService {
         return bookServiceConnector.getAllBooksList();
     }
 
-
     public String data() {
         String response = restTemplate.getForObject("http://localhost:8081/data", String.class);
         logger.log(Level.INFO, response);
         return response;
     }
+
+
 }

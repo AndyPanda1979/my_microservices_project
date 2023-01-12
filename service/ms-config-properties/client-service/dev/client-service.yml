@@ -1,2 +1,8 @@
 book-service:
   url: http://localhost:8081
+
+---
+# hystrix
+feign:
+  hystrix:
+    enabled: true
