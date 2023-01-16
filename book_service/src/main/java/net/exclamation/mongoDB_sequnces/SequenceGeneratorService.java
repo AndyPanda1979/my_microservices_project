@@ -22,6 +22,11 @@ public class SequenceGeneratorService {
     }
 
     public long generateSequence(String seqName) {
+
+        /**
+         * Ищет запись в коллекции database_sequence запись у которой _id = book_sequence
+         * (см. класс Book). Затем в этой коллекции он берет поле sequence и инкрементирует его.
+         */
         DatabaseSequence counter = mongoOperations.findAndModify(query(where("_id").is(seqName)),
                 new Update().inc("sequence",1), options().returnNew(true).upsert(true),
                 DatabaseSequence.class);

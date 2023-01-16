@@ -47,4 +47,10 @@ public class BooksController {
         logger.log(Level.INFO, "get book with id " + id);
         return booksService.findBookByID(id);
     }
+
+    @GetMapping("/create")
+    public Book createBook() {
+        logger.log(Level.INFO, "create book");
+        return null;
+        }
 }
