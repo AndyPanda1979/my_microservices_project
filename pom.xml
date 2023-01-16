@@ -13,6 +13,7 @@
       <module>_test__config_client</module>
     <module>book_service</module>
       <module>client_service</module>
+    <module>main_gateway</module>
   </modules>
 
   <parent>

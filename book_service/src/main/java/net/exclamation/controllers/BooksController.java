@@ -4,11 +4,10 @@ import net.exclamation.models.Book;
 import net.exclamation.services.BooksService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @RestController
@@ -41,5 +40,11 @@ public class BooksController {
     public List<Book> data() {
         logger.info("Get data from database (RestTemplate on client-service side)");
         return booksService.findAllBooks();
+    }
+
+    @GetMapping("/show/{id}")
+    public Book getBookById(@PathVariable Long id) {
+        logger.log(Level.INFO, "get book with id " + id);
+        return booksService.findBookByID(id);
     }
 }

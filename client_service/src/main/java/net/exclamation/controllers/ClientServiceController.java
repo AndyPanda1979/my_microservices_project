@@ -17,7 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/api/client")
 public class ClientServiceController {
 
     Logger logger = Logger.getLogger(ClientServiceController.class.getCanonicalName());
