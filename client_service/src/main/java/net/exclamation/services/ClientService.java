@@ -34,10 +34,17 @@ public class ClientService {
         this.bookServiceConnector = bookServiceConnector;
     }
 
+    public void saveBook(Book book) {
+        bookServiceConnector.saveBook(book);
+    }
 
     public List<Book> getAllBooksList() {
 
         return bookServiceConnector.getAllBooksList();
+    }
+
+    public Book getBookById(long id) {
+        return bookServiceConnector.getBookById(id);
     }
 
     public String data() {

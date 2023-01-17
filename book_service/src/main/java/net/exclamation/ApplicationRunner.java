@@ -25,7 +25,7 @@ public class ApplicationRunner implements CommandLineRunner {
         booksRepository.deleteAll();
         sequenceRepository.deleteAll();
         booksRepository.save(new Book(sequenceGeneratorService.generateSequence(Book.SEQUENCE_NAME), "Java", "OOP","http://infopulse-univer.com.ua/images/trenings/java.png"));
-        bookCreationEventPublisher.publishEvent("Книга по java");
+//        bookCreationEventPublisher.publishEvent("Книга по java");  // Публикуем сообщение о добавлении книги, котрые слушает BookCreationEventListener
         booksRepository.save(new Book(sequenceGeneratorService.generateSequence(Book.SEQUENCE_NAME), "Java", "Steram API","https://www.hdwallpaperslife.com/wp-content/uploads/2018/09/JAVA14-480x270.png"));
         booksRepository.save(new Book(sequenceGeneratorService.generateSequence(Book.SEQUENCE_NAME), "Java", "Collections","https://i.ytimg.com/vi/oOOESCvGGcI/hqdefault.jpg"));
         booksRepository.save(new Book(sequenceGeneratorService.generateSequence(Book.SEQUENCE_NAME), ".NET", "Basic","https://upload.wikimedia.org/wikipedia/commons/0/0e/Microsoft_.NET_logo.png"));

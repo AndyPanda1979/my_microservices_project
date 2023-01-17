@@ -25,4 +25,8 @@ public class BooksService {
         Optional<Book> bookOptional= booksRepository.findById(id);
         return bookOptional.orElse(null);
     }
+
+    public void createBook(Book book) {
+        booksRepository.save(book);
+    }
 }

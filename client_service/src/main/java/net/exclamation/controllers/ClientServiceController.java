@@ -5,9 +5,7 @@ import io.github.resilience4j.circuitbreaker.CircuitBreaker;
 import net.exclamation.models.Book;
 import net.exclamation.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.ResourceAccessException;
 
 import java.net.ConnectException;
@@ -30,11 +28,23 @@ public class ClientServiceController {
         this.clientService = clientService;
     }
 
+    @PostMapping("/create")
+    public void saveBook(@RequestBody Book book) {
+        System.out.println("CATCH CREATE REQUEST");
+        System.out.println(book);
+        clientService.saveBook(book);
+    }
+
     @GetMapping("/getAllBooksByFeignClient")
     public List<Book> getAllBooks() {
         List<Book> books = clientService.getAllBooksList();
-        books.forEach(System.out::println);
+//        books.forEach(System.out::println);
         return books;
+    }
+
+    @GetMapping("/getBookById/{id}")
+    public Book getBookById(@PathVariable long id) {
+        return clientService.getBookById(id);
     }
 
     @GetMapping("/getAllBooksByRestTemplate")

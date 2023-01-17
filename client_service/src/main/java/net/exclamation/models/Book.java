@@ -15,7 +15,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @ToString
 public class Book {
     @Id
-    private String id;
+    private long id;
 
     @NotBlank
     @Size(max = 10)

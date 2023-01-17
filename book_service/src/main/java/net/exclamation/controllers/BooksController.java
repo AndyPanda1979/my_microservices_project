@@ -48,9 +48,14 @@ public class BooksController {
         return booksService.findBookByID(id);
     }
 
-    @GetMapping("/create")
-    public Book createBook() {
-        logger.log(Level.INFO, "create book");
-        return null;
+        @PostMapping("/create")
+    public String createBook(@RequestBody Book book) {
+            System.out.println("CATCH CREATE BOOK");
+            System.out.println(book);
+            booksService.createBook(book);
+//            return("forward:/show");
+            return ("redirect:/show");
+
+            //TODO Хотелось бы в результате сохранения новой книги, отдавать все, но пока не получилось...
         }
 }
