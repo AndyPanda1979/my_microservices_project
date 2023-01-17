@@ -2,6 +2,7 @@ package net.exclamation;
 
 import net.exclamation.models.Book;
 import net.exclamation.mongoDB_sequnces.SequenceGeneratorService;
+import net.exclamation.publishers.BookCreationEventPublisher;
 import net.exclamation.repositories.BooksRepository;
 import net.exclamation.repositories.SequenceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +16,16 @@ public class ApplicationRunner implements CommandLineRunner {
     @Autowired
     SequenceGeneratorService sequenceGeneratorService;
 
+    @Autowired
+    BookCreationEventPublisher bookCreationEventPublisher;
+
     @Override
     public void run(String...args) throws Exception {
         System.out.println("Try to save data...");
         booksRepository.deleteAll();
         sequenceRepository.deleteAll();
         booksRepository.save(new Book(sequenceGeneratorService.generateSequence(Book.SEQUENCE_NAME), "Java", "OOP","http://infopulse-univer.com.ua/images/trenings/java.png"));
+        bookCreationEventPublisher.publishEvent("Книга по java");
         booksRepository.save(new Book(sequenceGeneratorService.generateSequence(Book.SEQUENCE_NAME), "Java", "Steram API","https://www.hdwallpaperslife.com/wp-content/uploads/2018/09/JAVA14-480x270.png"));
         booksRepository.save(new Book(sequenceGeneratorService.generateSequence(Book.SEQUENCE_NAME), "Java", "Collections","https://i.ytimg.com/vi/oOOESCvGGcI/hqdefault.jpg"));
         booksRepository.save(new Book(sequenceGeneratorService.generateSequence(Book.SEQUENCE_NAME), ".NET", "Basic","https://upload.wikimedia.org/wikipedia/commons/0/0e/Microsoft_.NET_logo.png"));

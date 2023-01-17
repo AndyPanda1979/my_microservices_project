@@ -11,7 +11,7 @@ public class SpringContextRefreshListener {
 
     @EventListener
     public void handleContextRefreshEvent(ContextRefreshedEvent ctxRefEvt) {
-        System.out.println("Context Start Event received.");
+        System.out.println("Context Refresh Event received.");
         System.out.println(ctxRefEvt.toString());
     }
 }
